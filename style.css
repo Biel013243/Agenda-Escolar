@@ -4,6 +4,10 @@
     box-sizing: border-box;
   }
   
+  html {
+    scroll-behavior: smooth;
+  }
+  
   body {
     font-family: 'Segoe UI', sans-serif;
     background: #121212;
@@ -12,8 +16,11 @@
   }
   
   header.hero {
-    background: linear-gradient(to right, #6a11cb, #2575fc);
+    margin: 0;
+    background: linear-gradient(-45deg, #6a11cb, #2575fc, #6a11cb, #2575fc);
     height: 100vh;
+    background-size: 400% 400%;
+    animation: gradientMove 20s ease infinite;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,6 +28,18 @@
     position: relative;
   }
   
+  @keyframes gradientMove {
+    0%{
+      background-position: 0% 50%;
+    }
+    50%{
+      background-position: 100% 50%;
+    }
+    100%{
+      background-position: 0% 50%;
+    }
+  }
+
   header .overlay {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(15px);
